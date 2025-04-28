@@ -1,0 +1,5 @@
+#!/bin/bash
+
+source ./bin/sh3f
+
+sh3f ./src /Users/robertthomas/Library/Application\ Support/eTeks/Sweet\ Home\ 3D/furniture/ sh3d_lib

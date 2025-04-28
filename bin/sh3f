@@ -1,0 +1,28 @@
+function sh3f(){
+	local input_dir=$1
+	local target_dir=$2
+	local target_name=$3
+
+	if [[ -z $input_dir ]]; then
+		echo "Need input_dir"
+		exit 1
+	else
+		input_dir=$(realpath "$input_dir")
+	fi
+
+	if [[ -z $target_dir ]]; then
+		target_dir=$input_dir/..
+	else
+		target_dir=$(realpath "$target_dir")
+	fi
+
+	if [[ -z $target_name ]]; then
+		target_name=$(basename $input_dir)
+	fi
+
+	local target=$target_dir/$target_name.sh3f
+
+	zip -j "$target" $input_dir/*
+
+	echo $target
+}
